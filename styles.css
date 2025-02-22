@@ -1,0 +1,159 @@
+/* Paleta de colores aesthetic */
+:root {
+    --primary-color: #6A0DAD; /* Morado principal */
+    --secondary-color: #D8BFD8; /* Lavanda */
+    --background-gradient: linear-gradient(135deg, #8A2BE2, #D8BFD8, #F8F0FF);
+    --text-color: #333;
+    --white: #FFF;
+}
+
+/* Estilos generales */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-gradient); /* Fondo degradado */
+    text-align: center;
+    color: var(--text-color);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+header {
+    background: rgba(106, 13, 173, 0.8); /* Morado translúcido */
+    color: var(--white);
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); /* Efecto glass */
+}
+
+/* Secciones */
+section {
+    padding: 60px; /* MÁS SEPARACIÓN ENTRE SECCIONES */
+    margin: 50px auto; /* MÁS ESPACIO ENTRE SECCIONES */
+    background: rgba(255, 255, 255, 0.85); /* Fondo blanco con transparencia */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en secciones */
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Titulos */
+h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+/* Proyectos */
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px;
+    margin: 15px; /* MÁS ESPACIO ENTRE PROYECTOS */
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Efecto hover en los proyectos */
+#projects li:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+/* Formulario de contacto */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, button {
+    margin: 15px 0; /* MÁS ESPACIO ENTRE CAMPOS */
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto en input */
+input:focus {
+    border-color: #8A2BE2;
+    outline: none;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Botón */
+button {
+    background: var(--primary-color);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover en botón */
+button:hover {
+    background: #5B0A8B;
+    transform: scale(1.05);
+}
+
+/* Mensaje de éxito del formulario */
+#responseMessage {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    color: green;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    section {
+        padding: 40px;
+        margin: 20px;
+    }
+}
