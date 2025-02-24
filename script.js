@@ -19,4 +19,19 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         responseMessage.style.opacity = "1";
     }
 });
+// Función para mostrar las secciones con animación
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('.fade-in');
 
+    const showOnScroll = () => {
+        let scrollY = window.scrollY;
+        sections.forEach(section => {
+            if (section.offsetTop < scrollY + window.innerHeight - 100) {
+                section.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener("scroll", showOnScroll);
+    showOnScroll(); // Para animar las secciones visibles al cargar
+});
