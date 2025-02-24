@@ -1,10 +1,10 @@
 /* Paleta de colores aesthetic */
 :root {
-    --primary-color: #6A0DAD; /* Morado principal */
+    --primary-color: #6A0DAD; /* Morado */
     --secondary-color: #D8BFD8; /* Lavanda */
-    --background-gradient: linear-gradient(135deg, #8A2BE2, #D8BFD8, #F8F0FF);
     --text-color: #333;
     --white: #FFF;
+    --gradient-bg: linear-gradient(135deg, #A855F7, #D8BFD8, #F8F0FF); /* Fondo con mejor degradado */
 }
 
 /* Estilos generales */
@@ -12,70 +12,109 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    background: var(--background-gradient); /* Fondo degradado */
+    background: var(--gradient-bg);
     text-align: center;
     color: var(--text-color);
-    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Header */
-header {
-    background: rgba(106, 13, 173, 0.8); /* Morado translúcido */
+/* Sección Hero */
+#hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     color: var(--white);
-    padding: 20px;
-    font-size: 24px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px); /* Efecto glass */
-}
-
-/* Secciones */
-section {
-    padding: 60px; /* MÁS SEPARACIÓN ENTRE SECCIONES */
-    margin: 50px auto; /* MÁS ESPACIO ENTRE SECCIONES */
-    background: rgba(255, 255, 255, 0.85); /* Fondo blanco con transparencia */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efecto hover en secciones */
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Titulos */
-h2 {
-    color: var(--primary-color);
-    font-size: 28px;
     text-transform: uppercase;
 }
 
-/* Proyectos */
+/* Sección Sobre Mí */
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+/* Foto de perfil */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+}
+
+/* Sección Proyectos - Ahora con el mismo tamaño que Contacto */
+#projects {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.8); /* Fondo igual al de "Contacto" */
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 500px; /* Mismo ancho que "Contacto" */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de "Mis Proyectos" */
+#projects h2 {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Lista de proyectos */
 #projects ul {
     list-style: none;
     padding: 0;
 }
 
 #projects li {
-    background: var(--secondary-color);
+    background: var(--primary-color); /* Morado SIEMPRE visible */
+    color: var(--white); /* Texto SIEMPRE blanco */
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Efecto hover en los proyectos */
+#projects li:hover {
+    background: #5B0A8B; /* Morado más oscuro al pasar el mouse */
+    transform: scale(1.05);
+}
+
+#projects li {
+    background: rgba(255, 255, 255, 0.5); /* Fondo más suave */
     color: var(--primary-color);
     padding: 12px;
-    margin: 15px; /* MÁS ESPACIO ENTRE PROYECTOS */
+    margin: 10px;
     border-radius: 8px;
     font-weight: bold;
     transition: transform 0.3s ease, background 0.3s ease;
@@ -88,17 +127,79 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Formulario de contacto */
+/* Mantener el estilo de los títulos */
+#projects h2 {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color); /* Usar el morado bonito de la paleta */
+}
+
+/* Lista de proyectos */
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    background: rgba(255, 255, 255, 0.5); /* Fondo más suave para los proyectos */
+    color: var(--primary-color); /* Morado principal */
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover en los proyectos */
+#projects li:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+#projects h2 {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+#projects li:hover {
+    transform: scale(1.05);
+}
+
+/* Sección Contacto */
+#contact {
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 form {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
+    gap: 15px;
 }
 
 input, button {
-    margin: 15px 0; /* MÁS ESPACIO ENTRE CAMPOS */
     padding: 12px;
     border: 2px solid var(--primary-color);
     border-radius: 6px;
@@ -106,7 +207,6 @@ input, button {
     transition: all 0.3s ease;
 }
 
-/* Efecto en input */
 input:focus {
     border-color: #8A2BE2;
     outline: none;
@@ -120,22 +220,12 @@ button {
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
 }
 
-/* Hover en botón */
 button:hover {
     background: #5B0A8B;
     transform: scale(1.05);
-}
-
-/* Mensaje de éxito del formulario */
-#responseMessage {
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 10px;
-    color: green;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /* Footer */
@@ -149,11 +239,63 @@ footer {
     margin-top: 50px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
+/* Secciones generales (Sobre Mí, Proyectos, Contacto) */
+.section-box {
+    width: 90%; /* Más ancho en todas las pantallas */
+    max-width: 1000px; /* No más grande de 1000px en pantallas grandes */
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 50px auto;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Responsive */
+/* Aplicar la clase a cada sección */
+#about, #projects, #contact {
+    width: 90%;
+    max-width: 1000px;
+    padding: 50px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive para pantallas pequeñas */
 @media (max-width: 768px) {
-    section {
-        padding: 40px;
-        margin: 20px;
+    .section-box {
+        width: 95%;
+        padding: 30px;
     }
+}
+/* Estilo uniforme para los títulos */
+.section-title {
+    font-size: 28px; /* Tamaño uniforme */
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color); /* Mismo color morado para todos */
+    margin-bottom: 20px;
+}
+/* Botones de los proyectos SIEMPRE morados */
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+#projects li {
+    background: var(--primary-color); /* Siempre morado */
+    color: var(--white); /* Texto blanco */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Efecto hover en los proyectos */
+#projects li:hover {
+    background: #5B0A8B; /* Morado más oscuro */
+    transform: scale(1.05);
 }
